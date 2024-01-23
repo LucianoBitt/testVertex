@@ -6,10 +6,10 @@
         Buscar Vídeos
       </h1>
       <v-text-field class="fix-text-fild" type="text" outlined v-model="input" color="grey"/>
-      <v-btn x-large dark color="timblack-primary" @click="searchVideos">
+      <v-btn large dark color="timblack-primary" @click="searchVideos">
         <span 
           class="font-weight-bold"
-          style="font-size: 20px;"
+          style="font-size: 18px;"
           v-text="'Buscar'"
         />
       </v-btn>
