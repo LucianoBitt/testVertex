@@ -107,7 +107,9 @@ export default {
     }
   })
 
-  export default class App extends mixins(MixinBuscaApi) {
+  export default class App extends mixins(
+    MixinBuscaApi
+  ) {
     input = ''
     data = []
     responseDetalhe = {}
