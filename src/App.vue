@@ -25,6 +25,11 @@
         @clickbutton="detalhes(id.videoId)"
         />
       </div>
+      <div v-if="'items' in data" class="paginacao my-3">
+        <v-btn :disabled="page == 1" @click="paginationApp('prev')">Voltar</v-btn>
+        <strong class="mx-5" v-text="page"/>
+        <v-btn @click="paginationApp('next')">Próximo</v-btn>
+      </div>
       <DialogDetalhes
       v-if="responseDetalhe && responseDetalhe.snippet"
       :dialog="dialogComponent"
@@ -109,6 +114,7 @@ export default {
     data = []
     responseDetalhe = {}
     dialogComponent = false
+    page = 1
 
     async searchVideos() {
       await this.buscarVideos(this.input)
@@ -128,6 +134,15 @@ export default {
 
     closeDiolog() {
       this.dialogComponent = false
+    }
+
+    paginationApp(type) {
+      this.pagination(this.input, /next/i.test(type) ? this.data.nextPageToken : this.data.prevPageToken).then((res) => {
+        this.data = res
+        this.page = /next/i.test(type) ? this.page = this.page + 1 : this.page = this.page - 1
+        console.log(this.data);
+        console.log(this.page);
+      })
     }
   }
 </script>

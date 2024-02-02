@@ -18,4 +18,10 @@ export default class MixinBuscaApi extends mixins() {
                 if ('data' in res) return res.data
             }).catch(err => console.log('err mixin search', err))
     }
+    async pagination(termo, token) {
+        return conectApi.get(`/search?part=id,snippet&q=${termo}&key=${process.env.VUE_APP_API_KEY}&maxResults=10&pageToken=${token}`)
+            .then(res => {
+                if ('data' in res) return res.data
+            }).catch(err => console.log('err mixin search', err))
+    }
 }

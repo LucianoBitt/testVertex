@@ -26,7 +26,7 @@ export default {
 
 <style scoped>
 .container-card {
-	padding: 15px;
+	padding: 12px;
 	background-color: rgb(17, 137, 216);
 	border-radius: 8px;
 	margin: 10px;
